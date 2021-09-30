@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Time tracking dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+  <div class="body">
+    <div class="grid">
+      <div class="grid-item profile">
+        <div class="profile-top">
+          <div class="profile-image">
+            <div class="icon">
+
+            </div>
+
+          </div>
+          <div class="profile-description">
+            <h1 class="fw-300">Report For</h1>
+            <h2 class="fw-300">Jeremy Robson</h2>
+
+          </div>
+        </div>
+        <div class="profile-links" id="toggle">
+          <div class="link selected fw-400">Daily</div>
+          <div class="link fw-400">Weekly</div>
+          <div class="link fw-400">Monthly</div>
+        </div>
+      </div>
+      <div class="grid-item work grid-item-item">
+        <div class="card">
+          <div class="card-top">
+            <div class="title">
+              <h3 class="fw-400">
+                Work
+              </h3>
+            </div>
+            <div class="icon">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="current-hours">
+              <h3 class="fw-300"><span id="work-current">4</span>hrs</h3>
+            </div>
+            <div class="previous-hours">
+              <p>Last Week - <span id="work-previous">4</span> hrs</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="grid-item play grid-item-item">
+        <div class="card">
+          <div class="card-top">
+            <div class="title">
+              <h3 class="fw-400">
+                Play
+              </h3>
+            </div>
+            <div class="icon">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="current-hours">
+              <h3 class="fw-300"><span id="play-current">4</span>hrs</h3>
+            </div>
+            <div class="previous-hours">
+              <p>Last Week - <span id="play-previous">36</span>hrs</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="grid-item study grid-item-item">
+        <div class="card">
+          <div class="card-top">
+            <div class="title">
+              <h3 class="fw-400">
+                Study
+              </h3>
+            </div>
+            <div class="icon">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="current-hours">
+              <h3 class="fw-300"><span id="study-current">4</span>hrs</h3>
+            </div>
+            <div class="previous-hours">
+              <p>Last Week - <span id="study-previous">36</span>hrs</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="grid-item exercise grid-item-item">
+        <div class="card">
+          <div class="card-top">
+            <div class="title">
+              <h3 class="fw-400">
+                Exercise
+              </h3>
+            </div>
+            <div class="icon">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="current-hours">
+              <h3 class="fw-300"><span id="exercise-current">4</span>hrs</h3>
+            </div>
+            <div class="previous-hours">
+              <p>Last Week - <span id="exercise-previous">36</span>hrs</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="grid-item social grid-item-item">
+        <div class="card">
+          <div class="card-top">
+            <div class="title">
+              <h3 class="fw-400">
+                Social
+              </h3>
+            </div>
+            <div class="icon">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="current-hours">
+              <h3 class="fw-300"><span id="social-current">4</span>hrs</h3>
+            </div>
+            <div class="previous-hours">
+              <p>Last Week - <span id="social-previous">36</span>hrs</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="grid-item self-care grid-item-item">
+        <div class="card">
+          <div class="card-top">
+            <div class="title">
+              <h3 class="fw-400">
+                Self Care
+              </h3>
+            </div>
+            <div class="icon">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="current-hours">
+              <h3 class="fw-300"><span id="self-care-current">4</span>hrs</h3>
+            </div>
+            <div class="previous-hours">
+              <p>Last Week - <span id="self-care-previous">36</span>hrs</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+
+  <script>
+
+    var timeData;
+    var toggle = document.getElementById('toggle');
+
+    var workCurrent = document.getElementById("work-current");
+    var workPrevious = document.getElementById("work-previous");
+    var playCurrent = document.getElementById("play-current");
+    var playPrevious = document.getElementById("play-previous");
+    var studyCurrent = document.getElementById("study-current");
+    var studyPrevious = document.getElementById("study-previous");
+    var exerciseCurrent = document.getElementById("exercise-current");
+    var exercisePrevious = document.getElementById("exercise-previous");
+    var socialCurrent = document.getElementById("social-current");
+    var socialPrevious = document.getElementById("social-previous");
+    var selfCareCurrent = document.getElementById("self-care-current");
+    var selfCarePrevious = document.getElementById("self-care-previous");
+
+    fetch('./data.json')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        timeData = data
+      }).then(() => {
+        console.log(timeData)
+        filterUI("daily");
+      })
+
+    toggle.addEventListener("click", function (e) {
+      Array.from(toggle.children).forEach(function (item) {
+        item.classList.remove("selected");
+      });
+      if (e.target.classList.contains("link")) {
+        e.target.classList.add("selected");
+        let frequency = e.target.textContent.toLowerCase()
+        filterUI(frequency)
+
+      }
+    });
+
+    function filterUI(param) {
+      timeData.forEach(element => {
+        if (element.title === "Work") {
+          workCurrent.innerHTML = element.timeframes[param].current;
+          workPrevious.innerHTML = element.timeframes[param].previous;
+        } else if (element.title === "Play") {
+          playCurrent.innerHTML = element.timeframes[param].current;
+          playPrevious.innerHTML = element.timeframes[param].previous;
+        }
+        else if (element.title === "Study") {
+          studyCurrent.innerHTML = element.timeframes[param].current;
+          studyPrevious.innerHTML = element.timeframes[param].previous;
+        }
+        else if (element.title === "Exercise") {
+          exerciseCurrent.innerHTML = element.timeframes[param].current;
+          exercisePrevious.innerHTML = element.timeframes[param].previous;
+        }
+        else if (element.title === "Social") {
+          socialCurrent.innerHTML = element.timeframes[param].current;
+          socialPrevious.innerHTML = element.timeframes[param].previous;
+        }
+        else if (element.title === "Self Care") {
+          selfCareCurrent.innerHTML = element.timeframes[param].current;
+          selfCarePrevious.innerHTML = element.timeframes[param].previous;
+        }
+
+      });
+    }
+
+  </script>
+</body>
+
+</html>
