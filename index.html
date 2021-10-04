@@ -224,10 +224,11 @@
       })
 
     toggle.addEventListener("click", function (e) {
-      Array.from(toggle.children).forEach(function (item) {
-        item.classList.remove("selected");
-      });
       if (e.target.classList.contains("link")) {
+        Array.from(toggle.children).forEach(function (item) {
+          item.classList.remove("selected");
+        });
+
         e.target.classList.add("selected");
         let frequency = e.target.textContent.toLowerCase()
         filterUI(frequency)
